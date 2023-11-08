@@ -44,4 +44,7 @@ const requestHandler = (req, res)=>{
     }
 }
 
-exports= requestHandler;
+exports= {
+    handler:requestHandler,
+    someText: "this is text",
+};
