@@ -1,6 +1,8 @@
 const fs = require('fs');
+const express = require('express');
+const app = express();
 
-const requestHandler = (req, res)=>{
+app.use ((req, res, next)=>{
     if (req.method === 'GET') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(`
@@ -42,9 +44,6 @@ const requestHandler = (req, res)=>{
             res.end();
         });
     }
-}
+});
 
-exports= {
-    handler:requestHandler,
-    someText: "this is text",
-};
+exports= app;
